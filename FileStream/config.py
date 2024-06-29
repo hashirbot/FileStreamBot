@@ -4,9 +4,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Telegram:
-    API_ID = int(env.get("API_ID"))
-    API_HASH = str(env.get("API_HASH"))
-    BOT_TOKEN = str(env.get("BOT_TOKEN"))
+    API_ID = int(env.get("API_ID", '25467884'))
+    API_HASH = str(env.get("API_HASH", '05a687da36243593d4eb624f46375341'))
+    BOT_TOKEN = str(env.get("BOT_TOKEN", '7045141239:AAFXxuVdouJNEvVoYhH9gPhHws7j45gMECo'))
     OWNER_ID = int(env.get('OWNER_ID', '7978482443'))
     WORKERS = int(env.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     DATABASE_URL = str(env.get('DATABASE_URL'))
@@ -24,7 +24,7 @@ class Telegram:
     ULOG_CHANNEL = int(env.get("ULOG_CHANNEL", None))   # Logs channel for user logs
     MODE = env.get("MODE", "primary")
     SECONDARY = True if MODE.lower() == "secondary" else False
-    AUTH_USERS = list(set(int(x) for x in str(env.get("AUTH_USERS", "")).split()))
+    AUTH_USERS = list(set(int(x) for x in str(env.get("AUTH_USERS", "2139560486")).split()))
 
 class Server:
     PORT = int(env.get("PORT", 8080))
